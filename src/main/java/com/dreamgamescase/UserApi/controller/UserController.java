@@ -1,8 +1,9 @@
-package com.dreamgamescase.UserApi.Controller;
+package com.dreamgamescase.UserApi.controller;
 
-import com.dreamgamescase.UserApi.Model.User;
-import com.dreamgamescase.UserApi.Service.IUserService;
+import com.dreamgamescase.UserApi.model.User;
+import com.dreamgamescase.UserApi.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -18,14 +19,14 @@ public class UserController {
     }
 
     @PostMapping()
-    public User create(@RequestParam("username") String username){
+    public ResponseEntity<User> create(@RequestParam("username") String username){
 
-        return userService.CreateUserRequest(username);
+        return userService.create(username);
     }
 
     @PutMapping("/{id}")
-    public User updateLevel(@PathVariable("id") int id){
-        return userService.UpdateLevelRequest(id);
+    public ResponseEntity<User> updateLevel(@PathVariable("id") int id){
+        return userService.updateLevel(id);
     }
 
     @GetMapping()
@@ -35,7 +36,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getUserDetail(@PathVariable("id") int id){
+    public ResponseEntity<User> getUserDetail(@PathVariable("id") int id){
 
         return userService.findAUserById(id);
     }
@@ -43,7 +44,7 @@ public class UserController {
     @PostMapping("/claim-reward/{id}")
     public User claimReward(@PathVariable("id") int id, @RequestParam("coin") int coin){
 
-        return userService.ClaimRewardRequest(id,coin);
+        return userService.claimRewardRequest(id,coin);
     }
 
 }

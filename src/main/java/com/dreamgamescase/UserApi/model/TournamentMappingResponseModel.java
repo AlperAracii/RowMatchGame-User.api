@@ -1,6 +1,10 @@
-package com.dreamgamescase.UserApi.Model;
+package com.dreamgamescase.UserApi.model;
 
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class TournamentMappingResponseModel {
 
     private Integer id;

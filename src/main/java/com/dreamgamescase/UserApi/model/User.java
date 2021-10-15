@@ -1,7 +1,6 @@
-package com.dreamgamescase.UserApi.Model;
+package com.dreamgamescase.UserApi.model;
 
-import lombok.Data;
-
+import lombok.*;
 import javax.persistence.*;
 
 @Data
@@ -24,4 +23,5 @@ public class User {
 
     @Column(name = "segment")
     private Integer segment;
+
 }
